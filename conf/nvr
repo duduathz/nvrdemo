@@ -1,0 +1,104 @@
+#!/bin/sh
+# chkconfig: 2345 80 50
+# description: NvrService is for video recording service in Linux 
+# processname: NvrService
+# Source function library.
+#. /etc/rc.d/init.d/functions
+
+if [ -f /etc/init.d/functions ] ; then
+  . /etc/init.d/functions
+elif [ -f /etc/rc.d/init.d/functions ] ; then
+  . /etc/rc.d/init.d/functions
+else
+  exit 1
+fi
+
+
+# Avoid using root's TMPDIR
+unset TMPDIR
+
+# Source networking configuration.
+. /etc/sysconfig/network
+
+# Check that networking is up.
+[ ${NETWORKING} = "no" ] && exit 1
+
+# Check that nvr.conf exists.
+[ -f /etc/GVR/nvr.conf ] || exit 6
+
+ret=0
+
+start() {
+			KIND="nvr"
+			echo -n $"Starting $KIND services: "
+			daemon /usr/local/bin/nvrh3c -d
+			RETVAL=$?
+			echo 
+			[ $RETVAL -eq 0 ] && touch /var/lock/subsys/nvr || \
+			   RETVAL=1
+			return $RETVAL
+}
+
+stop() {
+				KIND="nvr"
+				echo -n $"Shutting down $KIND services: "
+				killproc nvrh3c
+				RETVAL=$?
+				echo 
+				[ $RETVAL -eq 0  ] && rm -f /var/lock/subsys/nvr || \
+				echo 
+				return $RETVAL
+}
+restart(){
+		KIND="nvr"
+		echo -n $"Shutting down $KIND services: "
+		killproc nvrh3c
+		RETVAL=$?
+		[ $RETVAL -eq 0 ] && rm -f /var/lock/subsys/nvr
+			
+		KIND="nvr"
+		echo -n $"Starting $KIND services: "
+		daemon /usr/local/bin/nvrh3c -d
+		RETVAL=$?
+
+		[ $RETVAL -eq 0 ] && touch /var/lock/subsys/nvr || \
+		   RETVAL=1
+		return $RETVAL
+}
+
+status() {
+   local result
+   echo "check status of nvr..."
+   result=$( ps -ef | grep nvrh3c| wc -l )
+   #echo $result
+   if [ $result -gt 0 ] ; then
+       echo "nvr service is running"
+       ret=0
+  else
+       echo "nvr service is down"
+     ret=1
+ fi
+   echo "check status of nvr...done."
+}
+
+# See how we were called.
+
+case "$1" in
+  start)
+        start
+        ;;
+  stop)
+        stop
+        ;;
+  restart)
+  			restart
+  			;;
+  status)
+      status 
+        ;;
+  *)
+      echo $"Usage: $0 {start|stop|restart|status}"
+      exit 1
+esac
+
+exit $ret

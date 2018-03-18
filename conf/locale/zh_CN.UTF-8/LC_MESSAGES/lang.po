@@ -1,0 +1,100 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: nvr 1.0\n"
+"POT-Creation-Date: 2012-05-21 11:37+0800\n"
+"PO-Revision-Date: 2012-05-21 14:45+0800\n"
+"Last-Translator: chaixiaowei <chaixaiowei2008@gmail.com>\n"
+"Language-Team: ps <ps@gentek.com.cn>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-Language: chinese\n"
+"X-Poedit-Country: china\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+msgid "DB connected successed!"
+msgstr "数据库连接成功！"
+
+msgid "DB connected failed!"
+msgstr "数据库连接失败！"
+
+msgid "A ipc was added  to nvr successed!"
+msgstr "IPC添加成功！"
+
+msgid "A ipc was added to nvr failed!"
+msgstr "IPC添加失败！"
+
+msgid "The ipc was deleted  successed!"
+msgstr "IPC删除成功！"
+
+msgid "The ipc was deleted failed!"
+msgstr "IPC删除失败！"
+
+msgid "The ipc was startted  successed!"
+msgstr "IPC启动成功！"
+
+msgid "The ipc was startted  failed!"
+msgstr "IPC启动失败！"
+
+msgid "The ipc was stopped successed!"
+msgstr "IPC停止成功！"
+
+msgid "The ipc was stopped failed!"
+msgstr "IPC停止失败！"
+
+msgid "A ipc adapter was added successed!"
+msgstr "适配器添加成功！"
+
+msgid "A ipc adapter was added failed!"
+msgstr "适配器添加失败！"
+
+msgid "The nvr was restartted successed!"
+msgstr "设备重启成功！"
+
+msgid "The nvr was restartted failed!"
+msgstr "设备重启失败！"
+
+msgid "The nvr was stopped successed!"
+msgstr "设备停止成功！"
+
+msgid "The nvr was stopped failed!"
+msgstr "设备停止失败！"
+
+msgid "The nvr database was installed successed!"
+msgstr "数据库安装成功！"
+
+msgid "The nvr database was installed failed!"
+msgstr "数据库安装成功！"
+
+msgid "The nvr database was uninstalled successed!"
+msgstr "数据库卸载失败！"
+
+msgid "The nvr database was uninstalled failed!"
+msgstr "数据库卸载失败！"
+
+msgid "The disk space was alloced successed!"
+msgstr "硬盘空间分配成功！"
+
+msgid "The disk space was alloced failed!"
+msgstr "硬盘空间分配失败！"
+
+msgid "The video plan was updated successed!"
+msgstr "录像计划更新成功！"
+
+msgid "The video plan was updated failed!"
+msgstr "录像计划更新失败！"
+
+msgid "A test was being successed"
+msgstr "测试成功"
+
+msgid "There were something wrong for the parameters"
+msgstr "参数错误！"
+
+msgid "got it"
+msgstr "获取成功！"
+
+msgid "get it failed!"
+msgstr "获取失败！"
+

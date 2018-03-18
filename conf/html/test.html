@@ -1,0 +1,205 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN""http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+		
+		<meta http-equiv="Content-Type" content="text/html; charset=GB2312" />
+		
+		<title>Simpla Admin | Sign In</title>
+		
+		<!--                       CSS                       -->
+	  
+		<!-- Reset Stylesheet -->
+		<link rel="stylesheet" href="resources/css/reset.css" type="text/css" media="screen" />
+	  
+		<!-- Main Stylesheet -->
+		<link rel="stylesheet" href="resources/css/style.css" type="text/css" media="screen" />
+		
+		<!-- Invalid Stylesheet. This makes stuff look pretty. Remove it if you want the CSS completely valid -->
+		<link rel="stylesheet" href="resources/css/invalid.css" type="text/css" media="screen" />	
+		
+		<!-- Colour Schemes
+	  
+		Default colour scheme is green. Uncomment prefered stylesheet to use it.
+		
+		<link rel="stylesheet" href="resources/css/blue.css" type="text/css" media="screen" />
+		
+		<link rel="stylesheet" href="resources/css/red.css" type="text/css" media="screen" />  
+	 
+		-->
+		
+		<!-- Internet Explorer Fixes Stylesheet -->
+		
+		<!--[if lte IE 7]>
+			<link rel="stylesheet" href="resources/css/ie.css" type="text/css" media="screen" />
+		<![endif]-->
+		
+		<!--                       Javascripts                       -->
+	  
+		<!-- jQuery -->
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+
+		
+		<!-- jQuery Configuration -->
+		<script type="text/javascript" src="resources/scripts/simpla.jquery.configuration.js"></script>
+		
+		<!-- Facebox jQuery Plugin -->
+		<script type="text/javascript" src="resources/scripts/facebox.js"></script>
+		
+		<!-- jQuery WYSIWYG Plugin -->
+		<script type="text/javascript" src="resources/scripts/jquery.wysiwyg.js"></script>
+		
+		<!-- Internet Explorer .png-fix -->
+		
+		<!--[if IE 6]>
+			<script type="text/javascript" src="resources/scripts/DD_belatedPNG_0.0.7a.js"></script>
+			<script type="text/javascript">
+				DD_belatedPNG.fix('.png_bg, img, li');
+			</script>
+		<![endif]-->
+		<script type="text/javascript">
+			function loadget(url)
+			{
+				//alert(url);
+				$.getJSON(url,function(result){alert(result[string]);});
+			};
+		</script>
+	</head>
+  
+	<body id="upload">
+		<div id="sidebar"><div id="sidebar-wrapper"> <!-- Sidebar with logo and menu -->
+			
+			<h1 id="sidebar-title"><a href="#">系统管理</a></h1>
+		  
+			<!-- Logo (221px wide) -->
+			<a href="#"><img id="logo" src="resources/images/logo.png" alt="Simpla Admin logo" /></a>
+		  
+			<!-- Sidebar Profile links -->
+			<div id="profile-links">
+				<a href="#" title="系统首页">系统首页</a> | <a href="#" title="Sign Out">登出</a>
+			</div>        
+			
+			
+		</div></div> <!-- End #sidebar -->
+		
+		<div id="main-content"> <!-- Main Content Section with everything -->
+		<div id="upload-top">
+			
+				<h1>Simpla Admin</h1>
+				<!-- Logo (221px width) -->
+				<a href="#"><img id="logo" src="resources/images/logo.png" alt="Simpla Admin logo" /></a>
+			</div> <!-- End #logn-top -->
+			
+			
+		<div id="system-setup" class="block-top">
+			<label><h2>系统安装 </h2></label>
+			<ul>
+			<li><a href="/cmd?action=setupsql">出厂设置 </a></li>
+			<li><a href="/cmd?action=restart">设备重启 </a></li>
+			</ul>
+		</div>	
+		<div id="upload-wrapper" class="block-top">
+			<div id="upload-content">
+				<label><h2>添加摄像机驱动</h2></label>
+				<ul>
+				<li><a href="/cmd?action=addipctype&name=sony&file=/usr/local/ipcadapter/sonyproxy/libSNCIPCAdapter.so">添加sony摄像机驱动 </a></li>
+				</ul>
+				<form method="post" action="cmd?action=upload&dir=setup" enctype="multipart/form-data">
+					<p>
+					<label>摄像机驱动名称</label>
+					<input class="text-input small-input" type="text" id="ipctypename" name="small-input" /> <span class="input-notification success png_bg">名称可用</span> 
+					</p>
+					<p>
+						<label>摄像机驱动文件</label>
+						<input class="text-input" type="file" name="upfile"/>
+					</p>
+					<div class="clear"></div>
+					<p>
+						<input class="button" type="submit" value="提交" />
+					</p>
+					
+				</form>
+			</div> <!-- End #upload-content -->
+			
+		</div> <!-- End #upload-wrapper -->
+		<div id="add-ipc" class="block-top">
+			<label><h2>添加摄像机</h2></label>
+			<form method="get" action="cmd?action=addipc&port=0&user=admin&pass=admin&channel=0" >
+			<label>摄像机类型</label>
+			<input type="hidden" name="action" value="addipc" />
+			<select name="type">
+				<option value="0">请选择摄像机类型...</option>
+				<option value="1">sony</option>
+				<option value="2">axis</option>
+			</select>
+			<p>
+				<label>摄像机名称</label>
+				<input class="text-input small-input" type="text" id="name" name="name" /> <span class="input-notification success png_bg">名称可用</span> 
+			</p>
+			<p>
+				<label>摄像机地址</label>
+				<input class="text-input small-input" type="text" id="addr" name="addr" /> <span class="input-notification success png_bg">地址可用</span> 
+			</p>
+			<p>
+						<input class="button" type="submit" value="测试" />
+						<input class="button" type="submit" value="提交" />	
+			</p>
+		</div>
+		<div id="ipc-list" class="block-top">
+			<label><h2>查询 </h2></label>
+			<ul>
+			<li><div id="btn_ipc">摄像机查询 </a></li>
+			<li><a href="/get?name=videolist">录像查询 </a></li>
+			<li><a href="/get?name=ipctypelist">摄像机类型查询 </a></li>
+			<li><a href="/get?name=system">系统信息查询 </a></li>
+			<li><a href="/get?name=sqlserverconnectted">数据库状态查询 </a></li>
+			<li><a href="/get?name=videoplan&videoid=1">1号摄像机录像查询 </a></li>
+			</ul>
+			
+		</div>
+		<div id="panel_list"  class="tab-content default-tab"></div>
+		<div id="action" class="block-top">
+			<label><h2>操作 </h2></label>
+			<ul>
+			<li><a href="/cmd?action=startipc&id=1">启动1号摄像机 </a></li>
+			<li><a href="/cmd?action=stopipc&id=1">停止1号摄像机  </a></li>
+			<li><a href="/cmd?action=delipc&id=1">删除1号摄像机 </a></li>
+			<li><a href="/cmd?action=allocdiskspace&name=/">分配录像硬盘空间 </a></li>
+			<li><a href="/cmd?action=updatevideoplan&videoid=1&plan=00a7">创建1号摄像机7*24录像计划 </a></li>
+			</ul>
+		</div>
+				<div id="footer">
+				<small> <!-- Remove this notice or replace it with whatever you want -->
+						&#169; Copyright 2009 gentek| Powered by <a href="http://www.gentek.com.cn">NVR</a> | <a href="#">Top</a>
+				</small>
+			</div><!-- End #footer -->
+			
+		</div> <!-- End #main-content -->
+  </body>
+<script type=text/javascript >
+$(document).ready(function(){
+	$('#btn_ipc').on('click',get_ipc);
+});
+
+function get_ipc(){
+	var html="";
+	url='/get?name=ipclist&callback=?';
+	$.getJSON(url, function(data){
+		var ipcs = data[0].ipclist;
+		$("#panel_list").empty();
+		html+='<table><thead><tr><th><input class="check-all" type="checkbox" /></th><th>摄像机编号</th><th>摄像机名称</th><th>摄像机地址</th><th>摄像机状态</th><th>摄像机操作</th></tr></thead><tbody>';
+		for(var i = 0; i<ipcs.length; i++){		
+			html+='<tr><td><input type="checkbox" /></td><td>'+ipcs[i].id+'</td><td><a href="#" title="title">'+ipcs[i].name+'</a></td><td>'+ipcs[i].addr+'</td><td>停机</td><td><a href="#" title="Edit"><img src="resources/images/icons/pencil.png" alt="Edit" /></a><a href="#" title="Delete"><img src="resources/images/icons/cross.png" alt="Delete" /></a> <a href="#" title="Edit Meta"><img src="resources/images/icons/hammer_screwdriver.png" alt="Edit Meta" /></a></td></tr>';
+		}
+		html+='</tbody></table>'
+		$("#panel_list").append(html);
+	});
+}
+
+function get_system(){
+}
+
+function get_record(){
+}
+</script>
+  </html>

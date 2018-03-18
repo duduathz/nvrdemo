@@ -1,0 +1,327 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+		
+		<meta http-equiv="Content-Type" content="text/html; charset=GB2312" />
+		
+		<title>NVR 系统管理</title>
+		
+		<!--                       CSS                       -->
+	  
+		<!-- Reset Stylesheet -->
+		<link rel="stylesheet" href="resources/css/reset.css" type="text/css" media="screen" />
+	  
+		<!-- Main Stylesheet -->
+		<link rel="stylesheet" href="resources/css/style.css" type="text/css" media="screen" />
+		
+		<!-- Invalid Stylesheet. This makes stuff look pretty. Remove it if you want the CSS completely valid -->
+		<link rel="stylesheet" href="resources/css/invalid.css" type="text/css" media="screen" />	
+		
+		<!-- Colour Schemes
+	  
+		Default colour scheme is green. Uncomment prefered stylesheet to use it.
+		
+		<link rel="stylesheet" href="resources/css/blue.css" type="text/css" media="screen" />
+		
+		<link rel="stylesheet" href="resources/css/red.css" type="text/css" media="screen" />  
+	 
+		-->
+		
+		<!-- Internet Explorer Fixes Stylesheet -->
+		
+		<!--[if lte IE 7]>
+			<link rel="stylesheet" href="resources/css/ie.css" type="text/css" media="screen" />
+		<![endif]-->
+		
+		<!--                       Javascripts                       -->
+  
+		<!-- jQuery -->
+		<script type="text/javascript" src="resources/scripts/jquery-1.3.2.min.js"></script>
+		
+		<!-- jQuery Configuration -->
+		<script type="text/javascript" src="resources/scripts/simpla.jquery.configuration.js"></script>
+		
+		<!-- Facebox jQuery Plugin -->
+		<script type="text/javascript" src="resources/scripts/facebox.js"></script>
+		
+		<!-- jQuery WYSIWYG Plugin -->
+		<script type="text/javascript" src="resources/scripts/jquery.wysiwyg.js"></script>
+		
+		<!-- jQuery Datepicker Plugin -->
+		<script type="text/javascript" src="resources/scripts/jquery.datePicker.js"></script>
+		<script type="text/javascript" src="resources/scripts/jquery.date.js"></script>
+		<script type="text/javascript" src="resources/scripts/nvr.js"></script>
+		<!--[if IE]><script type="text/javascript" src="resources/scripts/jquery.bgiframe.js"></script><![endif]-->
+
+		
+		<!-- Internet Explorer .png-fix -->
+		
+		<!--[if IE 6]>
+			<script type="text/javascript" src="resources/scripts/DD_belatedPNG_0.0.7a.js"></script>
+			<script type="text/javascript">
+				DD_belatedPNG.fix('.png_bg, img, li');
+			</script>
+		<![endif]-->
+		
+	</head>
+  
+	<body><div id="body-wrapper"> <!-- Wrapper for the radial gradient background -->
+		
+		<div id="sidebar"><div id="sidebar-wrapper"> <!-- Sidebar with logo and menu -->
+			
+			<h1 id="sidebar-title"><a href="#">系统管理</a></h1>
+		  
+			<!-- Logo (221px wide) -->
+			<a href="#"><img id="logo" src="resources/images/logo.png" alt="Simpla Admin logo" /></a>
+		  
+			<!-- Sidebar Profile links -->
+			<div id="profile-links">
+				Hello, <a href="#" title="Edit your profile">John Doe</a>, you have <a href="#messages" rel="modal" title="3 Messages">3 Messages</a><br />
+				<br />
+				<a href="#" title="系统首页">系统首页</a> | <a href="#" title="Sign Out">登出</a>
+			</div>        
+			
+			<ul id="main-nav">  <!-- Accordion Menu -->				
+				<li>
+					<a href="#" class="nav-top-item"> <!-- Add the class "no-submenu" to menu items with no sub menu -->
+						系统信息
+					</a> 
+					<ul>
+						<li><a id="system_info" href="#tab1">系统信息</a></li>
+					</ul>      
+				</li>
+				
+				<li> 
+					<a href="#" class="nav-top-item "> <!-- Add the class "current" to current menu item -->
+					设备管理
+					</a>
+					<ul>
+						<li><a id="ipclist" href="#tab2">IPC管理</a></li>
+						<li><a id="ipctypelist"href="#tab3">适配器管理</a></li> <!-- Add class "current" to sub menu items also -->
+					</ul>
+				</li>
+				
+				<li>
+					<a href="#" class="nav-top-item">
+						录像管理
+					</a>
+					<ul>
+						<li><a id="videotrack" href="#tab4">录像查询</a></li>
+						<li><a id="videoplan" href="#tab5">录像计划</a></li>
+					</ul>
+				</li>	
+				<li>
+					<a href="#" class="nav-top-item">
+						日志查询
+					</a>
+					<ul>
+						<li><a id="systemlog1" href="#tab6">系统日志</a></li>
+						<li><a id="systemlog2" href="#tab6">访问日志</a></li>
+						<li><a id="systemlog3" href="#tab6">操作日志</a></li>
+					</ul>
+				</li>
+			 <li>
+					<a href="#" class="nav-top-item">
+						系统设置
+					</a>
+					<ul>
+						<li><a href="#">设备配置</a></li>
+						<li><a href="#">网络配置</a></li>
+						<li><a href="#">磁盘管理</a></li>
+						<li><a href="#">访问配置</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="#" class="nav-top-item">
+						Settings
+					</a>
+					<ul>
+						<li><a href="#">General</a></li>
+						<li><a href="#">Design</a></li>
+						<li><a href="#">Your Profile</a></li>
+						<li><a href="#">Users and Permissions</a></li>
+					</ul>
+				</li>      
+				
+			</ul> <!-- End #main-nav -->
+			
+		</div></div> <!-- End #sidebar -->
+		
+		<div id="main-content"> <!-- Main Content Section with everything -->
+			<div class="content-box"><!-- Start Content Box -->
+				<div class="content-box-content">
+					<div class="tab-content default-tab" id="tab1">
+						<!-- TAB Head -->
+						<h2>GVR系统信息</h2>
+						<p id="page-intro">What would you like to do?</p>
+					</div><!-- End #tab1 -->
+					<div class="tab-content" id="tab2">
+						<!-- TAB Head -->
+							<h2>IPC设备管理</h2>
+						<p id="page-intro">What would you like to do?</p>
+
+						<div id="ipclist">
+							<div class="content-box-header">
+							<h3>摄像机 </h3>					
+							<div class="clear"></div>
+							</div> <!-- End .content-box-header -->
+							<table>
+							
+							<thead>
+								<tr>
+								   <th><input class="check-all" type="checkbox" /></th>
+								   <th>摄像机编号</th>
+								   <th>摄像机名称</th>
+								   <th>摄像机地址</th>
+								   <th>摄像机状态</th>
+								   <th>摄像机操作</th>
+								</tr>
+							</thead>
+						 
+							<tfoot>
+								<tr>
+									<td colspan="6">
+										<div class="bulk-actions align-left">
+											<select name="dropdown">
+												<option value="option1">批量操作...</option>
+												<option value="option2">编辑</option>
+												<option value="option3">删除</option>
+											</select>
+											<a class="button" href="#">应用</a>
+										</div>
+										
+										<div class="pagination">
+											<a href="#" title="First Page">&laquo; First</a><a href="#" title="Previous Page">&laquo; Previous</a>
+											<a href="#" class="number" title="1">1</a>
+											<a href="#" class="number" title="2">2</a>
+											<a href="#" class="number current" title="3">3</a>
+											<a href="#" class="number" title="4">4</a>
+											<a href="#" title="Next Page">Next &raquo;</a><a href="#" title="Last Page">Last &raquo;</a>
+										</div> <!-- End .pagination -->
+										<div class="clear"></div>
+									</td>
+								</tr>
+							</tfoot>
+						 
+							<tbody>
+								<tr>
+									<td><input type="checkbox" /></td>
+									<td>1</td>
+									<td><a href="#" title="title">sony</a></td>
+									<td>192.168.7.3</td>
+									<td>停机 </td>
+									<td>
+										<!-- Icons -->
+										 <a href="#" title="启用"><img src="resources/images/icons/pencil.png" alt="Edit" /></a>
+										 <a href="#" title="停用"><img src="resources/images/icons/pencil.png" alt="Edit" /></a>
+										 <a href="#" title="编辑"><img src="resources/images/icons/pencil.png" alt="Edit" /></a>
+										 <a href="#" title="删除"><img src="resources/images/icons/cross.png" alt="Delete" /></a> 
+										 <a href="#" title="预览"><img src="resources/images/icons/hammer_screwdriver.png" alt="Edit Meta" /></a>
+									</td>
+								</tr>
+								</tbody>
+							</table>
+						</div><!-- End #ipclist -->
+					</div><!-- End #tab2 -->
+					<div class="tab-content" id="tab3">
+						<!-- TAB Head -->
+							<h2>IPC适配器管理</h2>
+							<p id="page-intro">What would you like to do?</p>
+							<div id="ipctypelist">
+								<div class="content-box-header">
+								<h3>IPC适配器</h3>	
+								<div class="clear"></div>
+								</div> <!-- End .content-box-header -->
+							<table>
+							<thead>
+								<tr>
+								   <th><input class="check-all" type="checkbox" /></th>
+								   <th>适配器编号</th>
+								   <th>适配器名称</th>
+								   <th>适配器描述</th>
+								   <th>适配器操作</th>
+								</tr>
+							</thead>
+						 
+							<tfoot>
+								<tr>
+									<td colspan="6">
+										<div class="bulk-actions align-left">
+											<select name="dropdown">
+												<option value="option1">批量操作...</option>
+												<option value="option2">编辑</option>
+												<option value="option3">删除</option>
+											</select>
+											<a class="button" href="#">应用</a>
+										</div>
+										
+										<div class="pagination">
+											<a href="#" title="First Page">&laquo; First</a><a href="#" title="Previous Page">&laquo; Previous</a>
+											<a href="#" class="number" title="1">1</a>
+											<a href="#" class="number" title="2">2</a>
+											<a href="#" class="number current" title="3">3</a>
+											<a href="#" class="number" title="4">4</a>
+											<a href="#" title="Next Page">Next &raquo;</a><a href="#" title="Last Page">Last &raquo;</a>
+										</div> <!-- End .pagination -->
+										<div class="clear"></div>
+									</td>
+								</tr>
+							</tfoot>
+						 
+							<tbody>
+								<tr>
+									<td><input type="checkbox" /></td>
+									<td>1</td>
+									<td><a href="#" title="title">sony</a></td>
+									<td>sony240</td>
+									<td>
+										<!-- Icons -->
+										 <a href="#" title="编辑"><img src="resources/images/icons/pencil.png" alt="Edit" /></a>
+										 <a href="#" title="删除"><img src="resources/images/icons/cross.png" alt="Delete" /></a> 
+										 <a href="#" title="测试"><img src="resources/images/icons/hammer_screwdriver.png" alt="Edit Meta" /></a>
+									</td>
+								</tr>
+								</tbody>
+							</table>
+						</div> <!-- End #ipctypelist -->
+					</div><!-- End #tab3 -->
+					<div class="tab-content" id="tab4">
+							<!-- TAB Head -->
+							<h2>录像查询</h2>
+							<p id="page-intro">What would you like to do?</p>
+							<div id="videotrack">
+								<form action="#" method="post">
+									<p>
+										 请选择摄像机            
+										<select name="dropdown" class="small-input">
+											<option value="option1">Option 1</option>
+											<option value="option2">Option 2</option>
+											<option value="option3">Option 3</option>
+											<option value="option4">Option 4</option>
+										</select> 
+										请输入关键字
+										<input class="text-input small-input" type="text" id="small-input" name="small-input" /> 
+										
+										<input class="button" type="submit" value="Search" />
+									</p>
+								</from>
+								<div class="content-box-header">
+								<h3>录像列表</h3>	
+								<div class="clear"></div>
+								</div> <!-- End .content-box-header -->
+							</div>	
+					</div><!-- End #tab4 -->
+				</div>
+			</div>
+			<div id="footer">
+				<small> <!-- Remove this notice or replace it with whatever you want -->
+						&#169; Copyright 2009 gentek| Powered by <a href="http://www.gentek.com.cn">NVR</a> | <a href="#">Top</a>
+				</small>
+			</div><!-- End #footer -->
+			
+		</div> <!-- End #main-content -->
+		
+	</div></body>
+  
+</html>
